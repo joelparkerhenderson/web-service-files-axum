@@ -22,9 +22,15 @@
 //! cargo run
 //! ```
 //!
-//! Browse <https://localhost:8080/files/example.txt>
+//! You can browse files by name…
 //!
-//! You should see the server respond with the file `example.txt`.
+//! Browse <https://localhost:8080/index.html>
+//!
+//! Browse <https://localhost:8080/index.txt>
+//!
+//! Browse <https://localhost:8080/index.json>
+//!
+//! You should see a response that shows the file contents.
 //!
 //! ## Options
 //!

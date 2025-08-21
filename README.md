@@ -23,13 +23,15 @@ Run the service using the default address 0.0.0.0:8080:
 cargo run
 ```
 
-Browse <https://localhost:8080/count>
+You can browse files by name…
 
-You should see a web page that displays the uptime in seconds.
+Browse <https://localhost:8080/index.html>
 
-Wait a little bit, then use your browser to reload the web page.
+Browse <https://localhost:8080/index.txt>
 
-You should see the uptime increase a little bit.
+Browse <https://localhost:8080/index.json>
+
+You should see a response that shows the file contents.
 
 ## Options
 
