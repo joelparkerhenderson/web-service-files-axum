@@ -10,10 +10,9 @@
 •
 **[email](mailto:joel@joelparkerhenderson.com)**
 
-Web service that displays the program uptime by using Axum, Tokio, Rust.
+Web service that serves files using Axum, Tokio, Rust.
 
 This is a very simple web service that we use for testing our systems.
-
 
 ## Steps
 
