@@ -1,0 +1,98 @@
+# Crate Documentation
+
+**Version:** 1.0.0
+
+**Format Version:** 45
+
+# Module `web_service_files_axum`
+
+# Web service files axum
+
+**[documentation](https://docs.rs/web-service-files-axum/)**
+•
+**[source](https://github.com/joelparkerhenderson/web-service-files-axum/)**
+•
+**[llms.txt](https://raw.githubusercontent.com/joelparkerhenderson/web-service-files-axum/refs/heads/main/llms.txt)**
+•
+**[crate](https://crates.io/crates/web-service-files-axum)**
+•
+**[email](mailto:joel@joelparkerhenderson.com)**
+
+Web service that serves files using Axum, Tokio, Rust.
+
+This is a very simple web service that we use for testing our systems.
+
+## Steps
+
+Run the service using the default address 0.0.0.0:8080:
+
+```sh
+cargo run
+```
+
+Browse <https://localhost:8080/files/example.txt>
+
+You should see the server respond with the file `example.txt`.
+
+## Options
+
+Run the service using a command line option for a custom address:
+
+```sh
+cargo run -- "1.2.3.4:5678"
+```
+
+Run the service using an environment variable for a custom address:
+
+```sh
+export ADDRESS="1.2.3.4:5678"
+cargo run
+```
+
+## References
+
+Based on Demo Rust Axum free open source software:
+<https://github.com/joelparkerhenderson/demo-rust-axum>
+
+
+## Modules
+
+## Module `app`
+
+```rust
+pub(crate) mod app { /* ... */ }
+```
+
+### Functions
+
+#### Function `app`
+
+Create our application by creating our router.
+
+```rust
+pub fn app() -> axum::Router { /* ... */ }
+```
+
+## Functions
+
+### Function `main`
+
+The main function does these steps:
+- Start tracing and emit a tracing event.
+- Get a command line argument as our bind address.
+- Create our application which is an axum router.
+- Run our application as a hyper server.
+
+```rust
+pub(crate) fn main() { /* ... */ }
+```
+
+### Function `shutdown_signal`
+
+Shutdown signal to run axum with graceful shutdown when
+a user presses Ctrl+C or Unix sends a terminate signal.
+
+```rust
+pub async fn shutdown_signal() { /* ... */ }
+```
+
