@@ -1,6 +1,6 @@
 # Crate Documentation
 
-**Version:** 1.0.2
+**Version:** 1.1.0
 
 **Format Version:** 45
 
@@ -42,16 +42,18 @@ You should see a response that shows the file contents.
 
 ## Options
 
-Run the service using a command line option for a custom address:
-
+Run the service using an environment variable for a custom bind address:
+ 
 ```sh
-cargo run -- "1.2.3.4:5678"
+export BIND="1.1.1.1:1111"
+cargo run
 ```
-
-Run the service using an environment variable for a custom address:
-
+ 
+Run the service using environment variables for a custom host and port:
+ 
 ```sh
-export ADDRESS="1.2.3.4:5678"
+export HOST="1.1.1.1"
+export PORT="1111"
 cargo run
 ```
 
@@ -79,6 +81,56 @@ Create our application by creating our router.
 pub fn app() -> axum::Router { /* ... */ }
 ```
 
+## Module `conf`
+
+Configuration module for the application.
+
+```rust
+pub(crate) mod conf { /* ... */ }
+```
+
+### Functions
+
+#### Function `bind_string`
+
+**Attributes:**
+
+- `#[allow(dead_code)]`
+
+Get the bind string from the environment variable BIND,
+or return the default bind address string "0.0.0.0:8080".
+
+```rust
+pub async fn bind_string() -> String { /* ... */ }
+```
+
+#### Function `host_string`
+
+Get the host string from the environment variable HOST,
+or return the default host IP address string "0.0.0.0".
+
+```rust
+pub async fn host_string() -> String { /* ... */ }
+```
+
+#### Function `port_string`
+
+Get the port string from the environment variable PORT,
+or return the default port number string "8080".
+
+```rust
+pub async fn port_string() -> String { /* ... */ }
+```
+
+#### Function `shutdown_signal`
+
+Shutdown signal to run axum with graceful shutdown when
+a user presses Ctrl+C or Unix sends a terminate signal.
+
+```rust
+pub async fn shutdown_signal() { /* ... */ }
+```
+
 ## Functions
 
 ### Function `main`
@@ -91,14 +143,5 @@ The main function does these steps:
 
 ```rust
 pub(crate) fn main() { /* ... */ }
-```
-
-### Function `shutdown_signal`
-
-Shutdown signal to run axum with graceful shutdown when
-a user presses Ctrl+C or Unix sends a terminate signal.
-
-```rust
-pub async fn shutdown_signal() { /* ... */ }
 ```
 
