@@ -1,0 +1,13 @@
+[Unit]
+Description=Web service files axum
+After=network.target
+StartLimitIntervalSec=0
+[Service]
+Type=simple
+Restart=always
+RestartSec=1
+User=root
+ExecStart=PORT=10003 /opt/web-service-files-axum/target/release/web-service-files-axum
+
+[Install]
+WantedBy=multi-user.target
